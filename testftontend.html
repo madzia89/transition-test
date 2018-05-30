@@ -87,10 +87,22 @@
     const withoutSpaces = toArr.push(txt.replace(/,/g, ' '))
     const arrayOfFive = toArr[0].split(' ')
     const myObj = {}
-    arrayOfFive.map(indexes => myObj.push(ind))
 
 
-    console.log(myObj)
+    const arrayToNestedObject = (arrayOfFive) => {
+        let start = '';
+        let end = '';
+        for (let i = 0; i < arrayOfFive.length; i++) {
+            if (i < arrayOfFive.length) {
+                start += '{';
+            }
+            start += '"' + arrayOfFive[i] + '":';
+            end += "}";
+        }
+        start += '""';
+        return JSON.parse(start + end);
+    }
+
 
 
     //Postać oczekiwana obiektu
