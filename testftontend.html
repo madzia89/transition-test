@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+    <title>Test - Transition Technologies</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"
+            integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div>
+    <label>Wybierz język</label>
+    <select name="language" onchange="selectedValue()">
+        <option value="1">Java</option>
+        <option value="2">C++</option>
+        <option value="3">C#</option>
+        <option value="4">JavaScript</option>
+        <option value="5">Python</option>
+    </select>
+</div>
+<div>
+    <div class="container">
+        <div class="item-1">
+            <p>item-1</p>
+        </div>
+        <div class="item-2">
+            <p>item-2</p>
+        </div>
+        <div class="item-3">
+            <p>item-3</p>
+        </div>
+        <div class="item-4">
+            <p>item-4</p>
+        </div>
+        <div class="item-5">
+            <p>item-5</p>
+        </div>
+        <div class="item-6">
+            <p>item-6</p>
+        </div>
+    </div>
+    <button id="click">Click</button>
+</div>
+<script type="text/javascript">
+    //1. Proszę napisa funkcję, która po wybraniu pozycji z selecta "JavaScript" wyświetli alert z napisaem "JS jest super!"
+    //
+    selectedValue = () => {
+        if (document.querySelector('select').value == 4)
+            alert('js jest super')
+    }
+
+    //2. Proszę zadeklarowac zmienną tablicową z wartościami var array = [2, 4, 8, 9, 6, 5, 7] i napisa funckję, która:
+    const array = [2, 4, 8, 9, 6, 5, 7]
+    //2.1 Wyświetli liczby nieparzyste
+    const odd = array.filter(number => {
+        if (number % 2 !== 0) {
+            return number
+        }
+    })
+    //2.2 odwróci kolejnośc tablicy
+    const reversed = array.reverse()
+    console.log('reversed: ', reversed, 'odd: ', odd)
+
+    //3. Przy użyciu CSS'a ustaw czerwone tło w co drugim elemencie w div’ie o klasie ‘container’
+
+    ////////CSS
+
+    //3.1 Przy użyciu JavaScript'u ustawic na niebiesko tło parzystym elementom po kliknięciu na przycisk "Click"
+    const getClick = document.getElementById('click')
+    const evenDives = document.querySelectorAll('.container>div:nth-child(odd)')
+    changeBackgroundColor = (blue) => {
+        evenDives.style.background = blue;
+    }
+
+    $("#click").click(function () {
+        const even = document.getElementsByClassName('.container');
+        $('.container>div:nth-child(even)').css('background-color', 'blue')
+    });
+
+
+    //4. Napisać funkcję, która zmieni podany string do zadeklarowanej postaci obiektu.
+    const txt = 'lorem,ipsum,dolor,sit,amet';
+
+    const toArr = []
+    const withoutSpaces = toArr.push(txt.replace(/,/g, ' '))
+    console.log(toArr)
+
+
+    console.log(objecter)
+    //Postać oczekiwana obiektu
+    // {
+    //   lorem:{
+    //     ipsum:{
+    //       dolor:{
+    //         sit:{
+    //           amet: ''
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+
+</script>
+
+</body>
+</html>
