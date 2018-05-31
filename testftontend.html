@@ -44,14 +44,14 @@
     <button id="click">Click</button>
 </div>
 <script type="text/javascript">
-    //1. Proszę napisa funkcję, która po wybraniu pozycji z selecta "JavaScript" wyświetli alert z napisaem "JS jest super!"
+    //napisac funkcję, która po wybraniu pozycji z selecta "JavaScript" wyświetli alert z napisaem "JS jest super!"
     //
     selectedValue = () => {
         if (document.querySelector('select').value == 4)
             alert('js jest super')
     }
 
-    //2. Proszę zadeklarowac zmienną tablicową z wartościami var array = [2, 4, 8, 9, 6, 5, 7] i napisa funckję, która:
+    //zadeklarowac zmienną tablicową z wartościami var array = [2, 4, 8, 9, 6, 5, 7] i napisac funckję, która:
     const array = [2, 4, 8, 9, 6, 5, 7]
     //2.1 Wyświetli liczby nieparzyste
     const odd = array.filter(number => {
@@ -63,11 +63,11 @@
     const reversed = array.reverse()
     console.log('reversed: ', reversed, 'odd: ', odd)
 
-    //3. Przy użyciu CSS'a ustaw czerwone tło w co drugim elemencie w div’ie o klasie ‘container’
+    //ustaw czerwone tło w co drugim elemencie w div’ie o klasie ‘container’
 
     ////////CSS
 
-    //3.1 Przy użyciu JavaScript'u ustawic na niebiesko tło parzystym elementom po kliknięciu na przycisk "Click"
+    //ustawic na niebiesko tło parzystym elementom po kliknięciu na przycisk "Click"
     const getClick = document.getElementById('click')
     const evenDives = document.querySelectorAll('.container>div:nth-child(odd)')
     changeBackgroundColor = (blue) => {
@@ -80,43 +80,20 @@
     });
 
 
-    //4. Napisać funkcję, która zmieni podany string do zadeklarowanej postaci obiektu.
+    //funkcja, która zmieni podany string do zadeklarowanej postaci obiektu.
     const txt = 'lorem,ipsum,dolor,sit,amet';
 
     const toArr = []
     const withoutSpaces = toArr.push(txt.replace(/,/g, ' '))
     const arrayOfFive = toArr[0].split(' ')
-    const myObj = {}
 
-
-    const arrayToNestedObject = (arrayOfFive) => {
-        let start = '';
-        let end = '';
-        for (let i = 0; i < arrayOfFive.length; i++) {
-            if (i < arrayOfFive.length) {
-                start += '{';
-            }
-            start += '"' + arrayOfFive[i] + '":';
-            end += "}";
+    const myObj = arrayOfFive.reduceRight((accumulator, currentValue) => {
+        return {
+            [currentValue]: accumulator
         }
-        start += '""';
-        return JSON.parse(start + end);
-    }
+    }, '')
 
-
-
-    //Postać oczekiwana obiektu
-    // {
-    //   lorem:{
-    //     ipsum:{
-    //       dolor:{
-    //         sit:{
-    //           amet: ''
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
+    console.log(myObj)
 
 </script>
 
